@@ -220,6 +220,15 @@ CUSTOM_LOCALES += \
     cy_GB \
     fur_IT
 
+# 开启 ADB 相关调试属性
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    persist.sys.usb.config=adb \
+    persist.service.adb.enable=1
+
+# 加入自定义adb 授权公钥
+PRODUCT_ADB_KEYS += build/shell/conf/chao.adbkey.pub
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
